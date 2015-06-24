@@ -1,0 +1,65 @@
+﻿Build started 6/24/2015 4:21:58 PM.
+     1>Project "C:\Users\Ngo Nghia\Desktop\ТЗ 2015\Disk\Source Code\program\unitTest\unitTest.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Release\program.lastbuildstate".
+       InitializeBuildStatus:
+         Creating "Release\program.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+         Moc'ing test_findrootmaxcommontree.h...
+         Moc'ing test_computecommontree.h...
+         Moc'ing test_computemaxcommonsubtree.h...
+         Moc'ing test_findnodewithdata.h...
+         Moc'ing test_readxml.h...
+         Moc'ing test_readtree.h...
+         Moc'ing test_readnode.h...
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I. /IC:\Qt\4.8.6\include /I.\GeneratedFiles\Release /IC:\Qt\4.8.6\include\QtCore /IC:\Qt\4.8.6\include\QtTest /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t- /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt error.cpp functions.cpp GeneratedFiles\Release\moc_test_computecommontree.cpp GeneratedFiles\Release\moc_test_computemaxcommonsubtree.cpp GeneratedFiles\Release\moc_test_findnodewithdata.cpp GeneratedFiles\Release\moc_test_findrootmaxcommontree.cpp GeneratedFiles\Release\moc_test_readnode.cpp GeneratedFiles\Release\moc_test_readtree.cpp GeneratedFiles\Release\moc_test_readxml.cpp main.cpp node.cpp test_computecommontree.cpp test_computemaxcommonsubtree.cpp test_findnodewithdata.cpp test_findrootmaxcommontree.cpp test_readnode.cpp test_readtree.cpp test_readxml.cpp
+         error.cpp
+         functions.cpp
+         moc_test_computecommontree.cpp
+         moc_test_computemaxcommonsubtree.cpp
+         moc_test_findnodewithdata.cpp
+         moc_test_findrootmaxcommontree.cpp
+         moc_test_readnode.cpp
+         moc_test_readtree.cpp
+         moc_test_readxml.cpp
+         main.cpp
+         node.cpp
+         test_computecommontree.cpp
+         test_computemaxcommonsubtree.cpp
+         test_findnodewithdata.cpp
+         test_findrootmaxcommontree.cpp
+         test_readnode.cpp
+         test_readtree.cpp
+         test_readxml.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ngo Nghia\Desktop\ТЗ 2015\Disk\Source Code\program\Win32\Release\\program.exe" /NOLOGO /LIBPATH:C:\Qt\4.8.6\lib qtmain.lib QtCore4.lib QtTest4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\program.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\Users\Ngo Nghia\Desktop\ТЗ 2015\Disk\Source Code\program\Win32\Release\program.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ngo Nghia\Desktop\ТЗ 2015\Disk\Source Code\program\Win32\Release\program.lib" /MACHINE:X86 Release\error.obj
+         Release\functions.obj
+         Release\moc_test_computecommontree.obj
+         Release\moc_test_computemaxcommonsubtree.obj
+         Release\moc_test_findnodewithdata.obj
+         Release\moc_test_findrootmaxcommontree.obj
+         Release\moc_test_readnode.obj
+         Release\moc_test_readtree.obj
+         Release\moc_test_readxml.obj
+         Release\main.obj
+         Release\node.obj
+         Release\test_computecommontree.obj
+         Release\test_computemaxcommonsubtree.obj
+         Release\test_findnodewithdata.obj
+         Release\test_findrootmaxcommontree.obj
+         Release\test_readnode.obj
+         Release\test_readtree.obj
+         Release\test_readxml.obj
+         unitTest.vcxproj -> C:\Users\Ngo Nghia\Desktop\ТЗ 2015\Disk\Source Code\program\Win32\Release\program.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Ngo Nghia\Desktop\ТЗ 2015\Disk\Source Code\program\Win32\Release\\program.exe;#1" /manifest Release\program.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\program.unsuccessfulbuild".
+         Touching "Release\program.lastbuildstate".
+     1>Done Building Project "C:\Users\Ngo Nghia\Desktop\ТЗ 2015\Disk\Source Code\program\unitTest\unitTest.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:10.85
