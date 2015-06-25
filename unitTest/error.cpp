@@ -9,16 +9,6 @@ error::error(){
 /*!
 * Конструктор
 * \param[in] _type - тип ошибки
-*/
-error::error(errorType _type){
-	type = _type;
-	treeID = 0;
-	errorString = "";
-}
-
-/*!
-* Конструктор
-* \param[in] _type - тип ошибки
 * \param[in] _treeID - идентификатор дерева, в котором возникает ошибка
 * \param[in] _message - сообщение о вершине или о дереве, в которых возникает ошибка
 */
@@ -31,7 +21,7 @@ error::error(errorType _type, int _treeID, QString _message){
 /*!
 * Напечатать сообщение о ошибке
 */
-void error::printMessage(){
+void error::printMessage() const{
 	switch (type){
 	case COULD_NOT_OPEN_FILE:
 		printf("Ошибка - возникла проблемма с записыванием файла с именем %s\n", errorString.toAscii().data());

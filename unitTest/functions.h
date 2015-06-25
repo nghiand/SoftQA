@@ -14,7 +14,7 @@
 #include "node.h"
 #include "error.h"
 
-const int MAX_TREE_SIZE = 20000;
+const int MAX_TREE_SIZE = 10;
 
 /*!
 * Считать открывающий тег вершины, создав её или, считать закрывающий тег вершины, в зависимости от положения в потоке
@@ -93,4 +93,6 @@ void printNode(QXmlStreamWriter& stream, node* currentNode);
 * \param[in] root - указатель на корень результирующего дерева
 */
 void printResult(QString filename, node* root);
+
+void createTree(int numNode);
 #endif

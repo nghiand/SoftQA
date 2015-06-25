@@ -66,9 +66,9 @@ void readTree(QXmlStreamReader& xmlStream, node*& root, int treeNum){
 		int newDepth;
 		try{
 			newDepth = readNode(xmlStream, treeNum, newNode);
-		} catch (error e){
+		} catch (const error& e){
 			// 3.1. Если возникла ошибка, то выбросить исключение
-			throw e;
+			throw;
 		}
 
 		// 3.2. Если новая вершина создана
@@ -140,9 +140,9 @@ void readXML(QString filename, node*& root1, node*& root2){
 	try{
 		readTree(xmlStream, root1, 1);
 		readTree(xmlStream, root2, 2);
-	} catch(error e){
+	} catch(const error& e){
 		// 3. Если возникла ошибка, выбросить эту ошибку
-		throw e;
+		throw;
 	}
 }
 
@@ -159,7 +159,8 @@ node* findNodeWithData(node* currentNode, int data){
 
 	node* ret = NULL;
 	// 2. Вызвать рекурсивно себя для всех дочерей вершины currentNode, до тех по пока не нашли результирующую вершину
-	for (int i = 0; i < currentNode->children.size(); i++){
+	int n = currentNode->children.size();
+	for (int i = 0; i < n; i++){
 		ret = findNodeWithData(currentNode->children[i], data);
 		if (ret != NULL) return ret;
 	}
@@ -259,11 +260,13 @@ int computeCommonTree(node* root1, node* root2, node*& commonRoot){
 	QVector<node*> rootList;
 
 	// 1. Для каждой дочери вершины root1 с цифрой data.
-	for (int i = 0; i < root1->children.size(); i++){
+	int n = root1->children.size();
+	for (int i = 0; i < n; i++){
 		int c = 0;
 		node* newRoot = NULL;
+		int m = root2->children.size();
 		// 1.1. Найти дочери вершины root2, так что у которых одинаковые цифры
-		for (int j = 0; j < root2->children.size(); j++){
+		for (int j = 0; j < m; j++){
 			// 1.2. Если эта дочь вершины root2 найдена, 
 			if (root1->children[i]->data == root2->children[j]->data){
 				// то вызвать рекурсивно эту же функцию, чтобы найти максимальный размер общего поддерева в найденных дочерях.
@@ -286,8 +289,9 @@ int computeCommonTree(node* root1, node* root2, node*& commonRoot){
 
 	commonRoot = new node(root1->data);
 
+	n = childrenInMaxCommonTree.size();
 	// Сохранить список дочерей, которые находятся в общем поддереве, в массив list.
-	for (int i = 0; i < childrenInMaxCommonTree.size(); i++)
+	for (int i = 0; i < n; i++)
 		commonRoot->addChild(childrenInMaxCommonTree[i]);
 
 	return ret + 1;
@@ -324,13 +328,15 @@ int findRootMaxCommonTree(node* root1, node* root2, node*& retRoot){
 		}
 	}
 
+	int n = root1->children.size();
 	// 3. Для каждой дочери вершины root1 с цифрой, которую не содержат дочери вершины sameData
-	for (int i = 0; i < root1->children.size(); i++){
+	for (int i = 0; i < n; i++){
 		node* temp = NULL;
 		// флаг - дочери вершины sameData содержат ли цифрой, которую содержит i-ая дочь
 		bool check = false;
+		int m = sameData->children.size();
 		// Для каждой дочери вершины sameData 
-		for (int j = 0; j < sameData->children.size(); j++)
+		for (int j = 0; j < m; j++)
 			if (sameData->children[j]->data == root1->children[i]->data){
 				// флаг - истинный
 				check = true;
@@ -397,4 +403,41 @@ void printResult(QString filename, node* root){
 
 	xmlStream.writeEndElement();
 	xmlStream.writeEndDocument();
+}
+
+void createTree(int numNode){
+	srand(time(NULL));
+	QFile output("in.xml");
+	output.open(QIODevice::WriteOnly);
+	QXmlStreamWriter xmlStream(&output);
+	xmlStream.setAutoFormatting(true);
+	xmlStream.writeStartDocument();
+
+	xmlStream.writeStartElement("test");
+
+	node* root1 = new node (1);
+	for (int i = 2; i <= numNode; i++){
+		root1->addChild(new node(i));
+	}
+ 
+
+	// <tree>
+	xmlStream.writeStartElement("tree");
+	xmlStream.writeAttribute("id", "1");
+	printNode(xmlStream, root1);
+
+	xmlStream.writeEndElement();
+
+	node* root2 = new node (1);
+	for (int i = 2; i <= numNode; i++){
+		root2->addChild(new node(i));
+	}
+
+	xmlStream.writeStartElement("tree");
+	xmlStream.writeAttribute("id", "2");
+	printNode(xmlStream, root2);
+
+	xmlStream.writeEndElement();
+	xmlStream.writeEndDocument();
+
 }

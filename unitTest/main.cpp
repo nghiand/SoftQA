@@ -46,8 +46,6 @@ int main(int argc, char *argv[]){
 		}
 		QString filein = QString(argv[1]);
 		QString fileout = QString(argv[2]);
-		//QString filein = "1.xml";
-		//QString fileout = "out.xml";
 
 		node *root1, *root2;
 
@@ -55,14 +53,14 @@ int main(int argc, char *argv[]){
 		try{
 			// 2.1. Считать входные данные с помощью функции readXML и проверить их на корректность
 			readXML(filein, root1, root2);
-		} catch(error e){
+		} catch(const error& e){
 			// 2.2. Если возникла ошибка, то сообщать на экран ошибок и вернуть 1
 			e.printMessage();
 			return 1;
 		}
 		node* resRoot = NULL;
 		// 3. Найти пару вершин, которые содержат одинаковые цифры и общее поддерево с корнем в которой имеет максимальный размер, с помощью функции findRootMaxCommonTree
-		int resSize = findRootMaxCommonTree(root1, root2, resRoot);
+		findRootMaxCommonTree(root1, root2, resRoot);
 
 		// 4. Напечатать результирующее дерево на XML-файл с помощью функции printResult
 		printResult(fileout, resRoot);

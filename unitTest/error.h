@@ -30,11 +30,6 @@ public:
 	/*!
 	* Конструктор
 	* \param[in] _type - тип ошибки
-	*/
-	error(errorType _type);
-	/*!
-	* Конструктор
-	* \param[in] _type - тип ошибки
 	* \param[in] _treeID - идентификатор дерева, в котором возникает ошибка
 	* \param[in] _message - сообщение о вершине или о дереве, в которых возникает ошибка
 	*/
@@ -42,7 +37,7 @@ public:
 	/*!
 	* Напечатать сообщение о ошибке
 	*/
-	void printMessage();
+	void printMessage() const;
 };
 
 
