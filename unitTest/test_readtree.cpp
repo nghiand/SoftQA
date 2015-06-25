@@ -6,7 +6,6 @@
 * Неправильный идентификатор дерева
 */
 void test_readTree::wrongID(){
-	int treeNum = 1;
 	// <tree id="a">
 	// <node value="1">
 	// </tree>
@@ -16,9 +15,10 @@ void test_readTree::wrongID(){
 	node* root;
 
 	try{
+		int treeNum = 1;
 		// возвращаемое значение
 		readTree(stream, root, treeNum);
-	} catch (error e){
+	} catch (const error& e){
 		QCOMPARE(e.type, WRONG_TREE_ID);
 		QCOMPARE(e.treeID, 1);
 		QCOMPARE(e.errorString, QString("a"));
@@ -33,7 +33,6 @@ void test_readTree::wrongID(){
 * Существуют несколько вершин с одинаковыми цифрами
 */
 void test_readTree::coincidedNumbers(){
-	int treeNum = 1;
 	// <tree id="1">
 	//   <node value="1">
 	//     <node value="2"/>
@@ -53,9 +52,10 @@ void test_readTree::coincidedNumbers(){
 	node* root;
 
 	try{
+		int treeNum = 1;
 		// возвращаемое значение
 		readTree(stream, root, treeNum);
-	} catch (error e){
+	} catch (const error& e){
 		QCOMPARE(e.type, COINCIDED_NUMBERS);
 		QCOMPARE(e.treeID, 1);
 		QCOMPARE(e.errorString, QString("1"));
@@ -70,7 +70,6 @@ void test_readTree::coincidedNumbers(){
 * Значение в одной вершине не является цифрой
 */
 void test_readTree::existsNotNumber(){
-	int treeNum = 2;
 	//<tree id="2">
 	//	<node value="1">
 	//		<node value="2"/>
@@ -90,9 +89,10 @@ void test_readTree::existsNotNumber(){
 	node* root;
 
 	try{
+		int treeNum = 2;
 		// возвращаемое значение
 		readTree(stream, root, treeNum);
-	} catch (error e){
+	} catch (const error& e){
 		QCOMPARE(e.type, EXISTS_NOT_NUMBER);
 		QCOMPARE(e.treeID, 2);
 		QCOMPARE(e.errorString, QString("n"));
@@ -107,8 +107,6 @@ void test_readTree::existsNotNumber(){
 * Количество вершин дерева превышает максимальный размер
 */
 void test_readTree::overSize(){
-	int treeNum = 1;
-
 	//<tree id="1">
 	//  <node value="1">
 	//	<node value="2"/>
@@ -185,9 +183,10 @@ void test_readTree::overSize(){
 	node* root;
 
 	try{
+		int treeNum = 1;
 		// возвращаемое значение
 		readTree(stream, root, treeNum);
-	} catch (error e){
+	} catch (const error& e){
 		QCOMPARE(e.type, OVER_SIZE);
 		QCOMPARE(e.treeID, 1);
 		QCOMPARE(e.errorString, QString("31"));
@@ -201,9 +200,7 @@ void test_readTree::overSize(){
 /*!
 * Дерево содержит одну вершину
 */
-void test_readTree::oneNode(){
-	int treeNum = 1;
-	
+void test_readTree::oneNode(){	
 	//<tree id="1">
 	//	<node value="2"/>
 	//</tree>
@@ -217,9 +214,10 @@ void test_readTree::oneNode(){
 	node* root;
 
 	try{
+		int treeNum = 1;
 		// возвращаемое значение
 		readTree(stream, root, treeNum);
-	} catch (error e){
+	} catch (const error& e){
 		QVERIFY(false);
 		return;
 	}
@@ -234,7 +232,6 @@ void test_readTree::oneNode(){
 * Дерево содержит несколько вершин
 */
 void test_readTree::severalNodes(){
-	int treeNum = 1;
 	//<tree id="1">
 	//  <node value="1">
 	//	<node value="2">
@@ -273,9 +270,10 @@ void test_readTree::severalNodes(){
 	node* root;
 
 	try{
+		int treeNum = 1;
 		// возвращаемое значение
 		readTree(stream, root, treeNum);
-	} catch (error e){
+	} catch (const error& e){
 		QVERIFY(false);
 		return;
 	}

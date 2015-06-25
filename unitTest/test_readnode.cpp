@@ -10,18 +10,15 @@ void test_readNode::initTestCase(){
 * Атрибут значение не является цифрой
 */
 void test_readNode::valueIsNotNumber(){
-	int treeNum = 1;
-	// <node value="a">
-	// </node>
 	QByteArray data = "<node value=\"a\"></node>";
 	QXmlStreamReader stream(data);
 	stream.readNext();
 	node* newNode;
-	int ret;
 	try{
+		int treeNum = 1;
 		// возвращаемое значение
-		ret = readNode(stream, treeNum, newNode);
-	} catch (error e){
+		readNode(stream, treeNum, newNode);
+	} catch (const error& e){
 		QCOMPARE(e.type, EXISTS_NOT_NUMBER);
 		QCOMPARE(e.treeID, 1);
 		QCOMPARE(e.errorString, QString("a"));
@@ -35,9 +32,6 @@ void test_readNode::valueIsNotNumber(){
 * Открывающий тег <node> и атрибут значение является цифрой
 */
 void test_readNode::openingTag(){
-	int treeNum = 1;
-	// <node value="1">
-	// </node>
 	QByteArray data = "<node value=\"1\"></node>";
 	QXmlStreamReader stream(data);
 	stream.readNext();
@@ -45,9 +39,10 @@ void test_readNode::openingTag(){
 	int ret;
 
 	try{
+		int treeNum = 1;
 		// возвращаемое значение
 		ret = readNode(stream, treeNum, newNode);
-	} catch (error e){
+	} catch (const error& e){
 		QVERIFY(false);
 	}
 
@@ -63,9 +58,6 @@ void test_readNode::openingTag(){
 * Закрывающий тег </node>
 */
 void test_readNode::closingTag(){
-	int treeNum = 1;
-	// <node>
-	// </node>
 	QByteArray data = "<node></node>";
 	QXmlStreamReader stream(data);
 	stream.readNext();
@@ -75,9 +67,10 @@ void test_readNode::closingTag(){
 	int ret;
 
 	try{
+		int treeNum = 1;
 		// возвращаемое значение
 		ret = readNode(stream, treeNum, newNode);
-	} catch (error e){
+	} catch (const error& e){
 		QVERIFY(false);
 	}
 

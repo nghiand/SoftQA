@@ -14,7 +14,7 @@ void test_readXML::wrongFirstID(){
 
 	try{
 		readXML(filename, root1, root2);
-	} catch (error e){
+	} catch (const error& e){
 		QCOMPARE(e.type, WRONG_TREE_ID);
 		QCOMPARE(e.treeID, 1);
 		QCOMPARE(e.errorString, QString("3"));
@@ -35,7 +35,7 @@ void test_readXML::wrongSecondID(){
 
 	try{
 		readXML(filename, root1, root2);
-	} catch (error e){
+	} catch (const error& e){
 		QCOMPARE(e.type, WRONG_TREE_ID);
 		QCOMPARE(e.treeID, 2);
 		QCOMPARE(e.errorString, QString("5a"));
@@ -56,7 +56,7 @@ void test_readXML::existsNotNumber(){
 
 	try{
 		readXML(filename, root1, root2);
-	} catch (error e){
+	} catch (const error& e){
 		QCOMPARE(e.type, EXISTS_NOT_NUMBER);
 		QCOMPARE(e.treeID, 2);
 		QCOMPARE(e.errorString, QString("wrongvalue"));
@@ -77,7 +77,7 @@ void test_readXML::coincidedNumbers(){
 
 	try{
 		readXML(filename, root1, root2);
-	} catch (error e){
+	} catch (const error& e){
 		QCOMPARE(e.type, COINCIDED_NUMBERS);
 		QCOMPARE(e.treeID, 2);
 		QCOMPARE(e.errorString, QString("1"));
@@ -98,7 +98,7 @@ void test_readXML::overSize(){
 
 	try{
 		readXML(filename, root1, root2);
-	} catch (error e){
+	} catch (const error& e){
 		QCOMPARE(e.type, OVER_SIZE);
 		QCOMPARE(e.treeID, 1);
 		QCOMPARE(e.errorString, QString("31"));
@@ -119,7 +119,7 @@ void test_readXML::emptyTree(){
 
 	try{
 		readXML(filename, root1, root2);
-	} catch (error e){
+	} catch (const error& e){
 		QVERIFY(false);
 		return;
 	}
@@ -147,7 +147,7 @@ void test_readXML::severalNodesOnBothTree(){
 
 	try{
 		readXML(filename, root1, root2);
-	} catch (error e){
+	} catch (const error& e){
 		QVERIFY(false);
 		return;
 	}
