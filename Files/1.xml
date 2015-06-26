@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test num="1" name="Неправильный идентификатор первого дерева">
+  <tree id="3">
+    <node value="1"/>
+  </tree>
+
+  <tree id="2">
+    <node value="1"/>
+  </tree>
+</test>

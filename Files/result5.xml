@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+    <result>3</result>
+    <tree>
+        <node value="1">
+            <node value="2"/>
+            <node value="3"/>
+        </node>
+    </tree>
+</test>
