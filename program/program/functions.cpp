@@ -332,14 +332,16 @@ int findRootMaxCommonTree(node* root1, node* root2, node*& retRoot, const QHash<
 		node* temp = NULL;
 		// флаг - дочери вершины sameData содержат ли цифрой, которую содержит i-ая дочь
 		bool check = false;
-		int m = sameData->children.size();
-		// Для каждой дочери вершины sameData 
-		for (int j = 0; j < m; j++)
-			if (sameData->children[j]->data == root1->children[i]->data){
-				// флаг - истинный
-				check = true;
-				break;
-			}
+		if (sameData != NULL){
+			int m = sameData->children.size();
+			// Для каждой дочери вершины sameData 
+			for (int j = 0; j < m; j++)
+				if (sameData->children[j]->data == root1->children[i]->data){
+					// флаг - истинный
+					check = true;
+					break;
+				}
+		}
 		if (!check){
 			// 3.1. Вызвать рекурсивно эту же функцию, чтобы найти максимальное общее поддерево с корнем в этих подвершинах.
 			int c = findRootMaxCommonTree(root1->children[i], root2, temp, nodeTableTree2);

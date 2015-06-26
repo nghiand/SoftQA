@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test num="8" name="Случайный Тест">
+  <tree id="1">
+    <node value="1">
+		<node value="2"/>
+		<node value="3"/>
+		<node value="4">
+			<node value="5"/>
+			<node value="6"/>
+			<node value="7"/>
+		</node>
+    </node>
+  </tree>
+
+  <tree id="2">
+    <node value="1">
+			<node value="5"/>
+			<node value="6"/>
+			<node value="7"/>
+    </node>
+  </tree>
+</test>
