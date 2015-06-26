@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test num="6" name=" Значение в одной вершине на одном дереве не является цифрой">
+  <tree id="1">
+  </tree>
+
+  <tree id="2">
+    <node value="1">
+      <node value="2"/>
+      <node value="3"/>
+    </node>
+  </tree>
+</test>

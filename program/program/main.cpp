@@ -11,16 +11,14 @@
 int main(int argc, char *argv[]){
 	setlocale(LC_ALL, "rus");
 	// 1. Проверить аргументы командной строки на наличие входных данных. Если не достает какого – либо файла, сформировать сообщение об ошибке
-	/*
 	if (argc != 3){
 		printf("Ошибка при выполнении программы.\nНеправильные аргументы.\n");
 		return 1;
 	}
-	*/
-//	QString filein = QString(argv[1]);
-//	QString fileout = QString(argv[2]);
-	QString filein = QString("test.xml");
-	QString fileout = QString("out.xml");
+	QString filein = QString(argv[1]);
+	QString fileout = QString(argv[2]);
+	//QString filein = QString("test.xml");
+	//QString fileout = QString("out.xml");
 
 	node *root1, *root2;
 

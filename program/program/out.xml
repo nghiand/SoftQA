@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <test>
-    <result>1</result>
+    <result>4</result>
     <tree>
-        <node value="1"/>
+        <node value="4">
+            <node value="5"/>
+            <node value="6"/>
+            <node value="7"/>
+        </node>
     </tree>
 </test>

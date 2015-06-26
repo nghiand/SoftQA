@@ -23,6 +23,9 @@ error::error(errorType _type, int _treeID, QString _message){
 */
 void error::printMessage() const{
 	switch (type){
+	case WRONG_FILE_FORMAT:
+		printf("Ошибка - формат входного файла неправильный\n");
+		break;
 	case COULD_NOT_OPEN_FILE:
 		printf("Ошибка - возникла проблемма с записыванием файла с именем %s\n", errorString.toAscii().data());
 		break;

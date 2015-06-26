@@ -13,7 +13,8 @@ int readNode(QXmlStreamReader& xmlStream, int treeNum, node*& newNode){
 	newNode = NULL;
 	QXmlStreamAttributes attr;
 	// 1. Считать тег из потока
-	xmlStream.readNext();
+	QXmlStreamReader::TokenType token = xmlStream.readNext();
+	if (token == QXmlStreamReader::Invalid) return -2;
 	// 2. Если открывающий тег <node> считан, то
 	if (xmlStream.isStartElement()){
 		// 3.1 Получить атрибуты из тега <node>
@@ -29,9 +30,11 @@ int readNode(QXmlStreamReader& xmlStream, int treeNum, node*& newNode){
 		newNode = new node(data);
 		// 3.4. Вернуть 1
 		return 1;
-	} else if (xmlStream.isEndElement())
+	} else if (xmlStream.isEndElement()){
 		// 4. Если закрывающий тег </node> считан, то вернуть -1
 		return -1;
+	}
+	//if (xmlStream.name() == "tree") return -2;
 	// 5. Иначе вернуть 0
 	return 0;
 }
@@ -97,7 +100,9 @@ void readTree(QXmlStreamReader& xmlStream, node*& root, int treeNum){
 			current = current->parent;
 			cnt--;
 		}
-
+		else if (newDepth == -2){
+			throw error(WRONG_FILE_FORMAT, 0, "");
+		}
 		// Если глубина текущей вершины равен 0, это показывает, что текущее дерево было прочитать
 		// затем закончить читать текущее дерево
 		if (cnt == 0){
