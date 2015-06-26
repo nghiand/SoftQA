@@ -93,6 +93,4 @@ void printNode(QXmlStreamWriter& stream, node* currentNode);
 * \param[in] root - указатель на корень результирующего дерева
 */
 void printResult(QString filename, node* root);
-
-void createTree(int numNode);
 #endif

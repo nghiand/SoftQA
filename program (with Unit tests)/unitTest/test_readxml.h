@@ -22,6 +22,7 @@ private slots:
 	void overSize();
 	void emptyTree();
 	void severalNodesOnBothTree();
+	void filenotexists();
 };
 
 #endif // TEST_READXML_H

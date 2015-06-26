@@ -198,3 +198,20 @@ void test_readXML::severalNodesOnBothTree(){
 	expectedRoot1->delTree();
 	expectedRoot2->delTree();
 }
+
+/*!
+* Входный файл не существует
+*/
+void test_readXML::filenotexists(){
+	QString filename = dir + "filenotexist.xml";
+	// результирующие деревья
+	node *root1, *root2;
+
+	try{
+		readXML(filename, root1, root2);
+	} catch (const error& e){
+		QCOMPARE(e.type, COULD_NOT_OPEN_FILE);
+		return;
+	}
+	QVERIFY(false);
+}
